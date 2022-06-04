@@ -1,0 +1,36 @@
+﻿@model Sistema_Patrimonio.Models.DbDepartamento
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes do Departamento</h1>
+
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nome:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nomedepartamento)
+        </dd>
+        <dt class = "col-sm-2">
+            Descrição:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.descricaodepartamento)
+        </dd>
+        <dt class = "col-sm-2">
+            Local:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.idlocal)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.iddepartamento" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-dark">Voltar</a>
+</div>

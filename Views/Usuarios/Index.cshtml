@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Sistema_Patrimonio.Models.DbUsuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Usuários</h1>
+
+<p>
+    @using (Html.BeginForm())
+    {
+        <text>Nome</text>@Html.DropDownList("nome", new SelectList(ViewBag.nome))
+        <text>Login</text>@Html.DropDownList("login", new SelectList(ViewBag.login))
+        <input type="submit" value="Procurar"/>
+    }
+
+</p>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Novo</a>
+</p>
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Login
+            </th>
+            <th>
+                Senha
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.senha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idusuario" class="btn btn-warning">Editar</a> 
+                <a asp-action="Details" asp-route-id="@item.idusuario" class="btn btn-info">Detalhes</a> 
+                <a asp-action="Delete" asp-route-id="@item.idusuario" class="btn btn-danger">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

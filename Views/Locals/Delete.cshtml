@@ -1,0 +1,33 @@
+﻿@model Sistema_Patrimonio.Models.DbLocal
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Deletar Local</h1>
+
+<h3>Você tem certeza que deseja deletar?</h3>
+<div>
+    <h4>DbLocal</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nome do local:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nomelocal)
+        </dd>
+        <dt class = "col-sm-2">
+            Descrição:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.descricaolocal)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="idlocal" />
+        <input type="submit" value="Deletar" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-dark">Voltar</a>
+    </form>
+</div>
